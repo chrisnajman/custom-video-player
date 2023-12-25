@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <meta name="description" content="Accessible video player with custom controls.">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <script src="./js/index.js" type="module"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="element-invisible element-focusable skip-link">Skip to main content</a>
+    <form id="theme-picker" class="theme-picker">
+        <button type="button" id="btn-theme-toggle" class="btn-theme-toggle" aria-pressed>
+            <svg role="img" class="theme-icon" id="theme-darkmode">
+                <use href="./img/sprite.svg#moon"></use>
+            </svg>
+            <svg role="img" class="theme-icon hide" id="theme-lightmode">
+                <use href="./img/sprite.svg#sun"></use>
+            </svg>
+            <span>Dark Mode:</span> <span id="mode" class="mode"></span>
+            <span class="btn-theme-state" aria-hidden="true"></span>
+        </button>
+    </form>
+
+    <div class="page-layout">
+        <header class="page-header" id="page-header">
+            <svg role="img" class="icon-logo">
+                <use href="./img/sprite.svg#icon-logo"></use>
+            </svg>
+            <h1>Custom Video Player</h1>
+        </header>
+
+        <main class="main">
+
+            <div class="player" id="videoContainer">
+                <div class="video-wrapper paused" id="video-wrapper">
+                    <video id="video" class="video" preload="metadata" onloadstart="this.volume=0.15" controls
+                        poster="https://iandevlin.github.io/mdn/video-player/img/poster.jpg">
+                        <source
+                            src="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.mp4"
+                            type="video/mp4">
+                        <source
+                            src="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.webm"
+                            type="video/webm">
+                        <source
+                            src="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.ogg"
+                            type="video/ogg">
+
+                        <!-- Offer download -->
+                        <a href="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.mp4"
+                            target="_blank" rel="noopener noreferrer">
+                            Download MP4
+                        </a>
+                    </video>
+                </div>
+                <div class="video-controls-container">
+                    <span class="visually-hidden">Progress bar - click inside to go back or
+                        forward. For keyboard navigation hold down the Shift key then press either the 'arrow left'
+                        or 'arrow right' key.</span>
+                    <progress id="progress" value="0" min="0" class="progress" tabindex="0">
+                        <span id="progress-bar"></span>
+                    </progress>
+                    <ul class="video-controls" role="list">
+                        <li>
+                            <button id="playpause" type="button">
+                                <span id="playpause-text" class="visually-hidden">Play</span>
+                                <svg role="img" class="icon icon-play-pause" data-play>
+                                    <use href="./img/video-controls-sprite.svg#icon-play"></use>
+                                </svg>
+                                <svg role="img" class="icon  icon-play-pause hide" data-pause>
+                                    <use href="./img/video-controls-sprite.svg#icon-pause"></use>
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="text-control">
+                            <span class="visually-hidden" id="video-current-time">Current time</span><span
+                                id="current-time" aria-describedby="video-current-time">00:00</span> / <span
+                                class="visually-hidden" id="video-duration">Current time</span><span id="duration"
+                                aria-describedby="video-duration" class="visually-hidden">Video duration</span>
+                        </li>
+                        <li class="text-control">
+                            <span class="visually-hidden" id="skip-back">Go back 10 seconds</span>
+                            <button data-skip="-10" aria-describedby="skip-back">&laquo; 10s</button>
+                            <span class="visually-hidden" id="skip-forwards">Go forwards 25 seconds</span>
+                            <button data-skip="25" aria-describedby="skip-forwards">25s &raquo;</button>
+                        </li>
+                        <li class="volume-controls">
+                            <button class="btn-volume" id="btn-volume" type="button">
+                                <span class="visually-hidden" id="btn-volume-text">Muted</span>
+                            </button>
+
+                            <label for="range-volume" class="visually-hidden">
+                                Drag slider to change volume
+                            </label>
+                            <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05"
+                                value="0.15" id="range-volume">
+                        </li>
+                        <li>
+                            <button id="fs" type="button">
+                                <span id="fullscreen-text" class="visually-hidden">Fullscreen</span>
+                                <svg role="img" class="icon" data-fullscreen>
+                                    <use href="./img/video-controls-sprite.svg#icon-fullscreen"></use>
+                                </svg>
+                                <svg role="img" class="icon hide" data-exit-fullscreen>
+                                    <use href="./img/video-controls-sprite.svg#icon-exit-fullscreen"></use>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <ul role="list">
+                <li><a href="https://github.com/chrisnajman/custom-video-player" target="_blank"
+                        rel="noopener noreferrer">GitHub Repository</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>
