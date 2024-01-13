@@ -16,6 +16,7 @@
 - [Accessibility](#accessibility)
   - [Screenreader-Friendly Labels and ARIA Attributes](#screenreader-friendly-labels-and-aria-attributes)
   - [Keyboard Navigation](#keyboard-navigation)
+  - [WAVE Web Accessibility Evaluation Tools Report](#wave-web-accessibility-evaluation-tools-report)
 - [Bug Report: Volume Slider and Mute Button Icon Sync Issue](#bug-report-volume-slider-and-mute-button-icon-sync-issue)
   - [Description](#description)
   - [Resolution](#resolution)
@@ -83,6 +84,10 @@ This project showcases a custom-built video player created using HTML and JavaSc
 
 - The player controls are navigable using keyboard shortcuts for enhanced accessibility.
 - Users can interact with the progress bar by clicking inside it or using keyboard navigation with the Shift key and arrow keys (left and right) for seeking backward and forward, respectively.
+
+### WAVE Web Accessibility Evaluation Tools Report
+
+- [Automated accessibility analysis results](https://wave.webaim.org/report#/https://chrisnajman.github.io/custom-video-player/)
 
 ## Bug Report: Volume Slider and Mute Button Icon Sync Issue
 
