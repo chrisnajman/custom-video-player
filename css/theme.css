@@ -1,4 +1,8 @@
 :root {
+    --font-sans: system-ui, sans-serif;
+    --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+
     --clr-light-blue: rgb(135, 206, 235);
     --clr-blue: rgb(0, 117, 255);
     --clr-lightest: white;

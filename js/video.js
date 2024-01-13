@@ -1,3 +1,4 @@
+import videoTranscript from "./video-transcript.js"
 export default function videoPlayer() {
   const video = document.getElementById("video")
 
@@ -87,12 +88,16 @@ export default function videoPlayer() {
   // ============================
   const videoCurrentTime = document.getElementById("current-time")
   const videoDuration = document.getElementById("duration")
-  video.addEventListener("loadedmetadata", () => {
-    videoDuration.textContent = formatVideoTime(video.duration)
-  })
+
   video.addEventListener("timeupdate", () => {
     videoCurrentTime.textContent = formatVideoTime(video.currentTime)
   })
+
+  window.onload = () => {
+    if (!isNaN(video.duration) && isFinite(video.duration)) {
+      videoDuration.textContent = formatVideoTime(video.duration)
+    }
+  }
 
   function formatVideoTime(s) {
     let m = Math.floor(s / 60)
@@ -141,7 +146,6 @@ export default function videoPlayer() {
   })
 
   rangeVolume.addEventListener("change", handleRangeUpdate)
-  // rangeVolume.addEventListener("mousemove", handleRangeUpdate)
 
   function handleRangeUpdate() {
     const volume = parseFloat(rangeVolume.value)
@@ -154,6 +158,19 @@ export default function videoPlayer() {
       btnVolumeTxt.textContent = "Unmuted"
     }
   }
+
+  // Track (captions)
+  // ============================
+  const btnCaptions = document.getElementById("captions")
+  const captions = document.getElementById("captions-text")
+
+  btnCaptions.addEventListener("click", (e) => {
+    e.target.classList.toggle("on")
+    video.textTracks[0].mode =
+      video.textTracks[0].mode === "showing" ? "hidden" : "showing"
+    captions.textContent =
+      captions.textContent === "Captions on" ? "Captions off" : "Captions on"
+  })
 
   // Full Screen
   // ============================
@@ -192,4 +209,8 @@ export default function videoPlayer() {
   function setFullscreenData(state) {
     videoContainer.setAttribute("data-fullscreen", !!state)
   }
+
+  // Transcript
+  // ============================
+  videoTranscript()
 }

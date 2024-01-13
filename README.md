@@ -1,5 +1,27 @@
 # Custom Video Player
 
+# Table of Contents
+
+- [Custom Video Player](#custom-video-player)
+  - [Overview](#overview)
+  - [Features](#features)
+    - [1. Custom Controls](#1-custom-controls)
+    - [2. Progress Bar](#2-progress-bar)
+    - [3. Play / Pause Functionality](#3-play--pause-functionality)
+    - [4. Time Display](#4-time-display)
+    - [5. Skip Functionality](#5-skip-functionality)
+    - [6. Volume Controls](#6-volume-controls)
+    - [7. Full Screen Mode](#7-full-screen-mode)
+    - [8. Closed Captions](#8-closed-captions)
+    - [9. Transcript](#9-transcript)
+  - [Accessibility](#accessibility)
+    - [Screenreader-Friendly Labels and ARIA Attributes](#screenreader-friendly-labels-and-aria-attributes)
+    - [Keyboard Navigation](#keyboard-navigation)
+  - [Bug Report: Volume Slider and Mute Button Icon Sync Issue](#bug-report-volume-slider-and-mute-button-icon-sync-issue)
+    - [Description](#description)
+    - [Resolution](#resolution)
+  - [Testing](#testing)
+
 ## Overview
 
 This project showcases a custom-built video player created using HTML and JavaScript. It provides a more tailored user experience compared to standard video players by implementing custom controls and functionalities.
@@ -39,12 +61,21 @@ This project showcases a custom-built video player created using HTML and JavaSc
 - Allows users to toggle the video player to full screen for an immersive viewing experience.
 - Changes the icon and functionality depending on the fullscreen state.
 
+### 8. Closed Captions
+
+- Users can click a button to display closed captions during video playback.
+
+### 9. Transcript
+
+- A `details` element with a `summary` tag is used to provide a transcript of the video.
+- Accompanied by JavaScript to manage opening and closing behavior.
+
 ## Accessibility
 
 ### Screenreader-Friendly Labels and ARIA Attributes
 
-- ARIA attributes (`aria-pressed`, `aria-describedby`) have been implemented to ensure accessibility for screen readers.
-  - Non-visual elements have the `aria-hidden="true` attribute to hide them from screenreaders.
+- ARIA attributes (`aria-pressed`, `aria-describedby`, `aria-label`) have been implemented to ensure accessibility for screen readers.
+  - Non-visual elements have the `aria-hidden="true"` attribute to hide them from screenreaders.
 - Essential controls have descriptive labels for screenreader users.
   - For example, the play/pause button has a visually hidden text label for screen readers: `<span id="playpause-text" class="visually-hidden">Play</span>`.
 - Similarly, time indicators have descriptive labels such as `<span class="visually-hidden" id="video-current-time">Current time</span>` and `<span class="visually-hidden" id="video-duration">Video duration</span>`.
@@ -52,7 +83,7 @@ This project showcases a custom-built video player created using HTML and JavaSc
 ### Keyboard Navigation
 
 - The player controls are navigable using keyboard shortcuts for enhanced accessibility.
-- For example, users can interact with the progress bar by clicking inside it or using keyboard navigation with the Shift key and arrow keys (left and right) for seeking backward and forward, respectively.
+- Users can interact with the progress bar by clicking inside it or using keyboard navigation with the Shift key and arrow keys (left and right) for seeking backward and forward, respectively.
 
 ## Bug Report: Volume Slider and Mute Button Icon Sync Issue
 

@@ -7,15 +7,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-.video-wrapper.paused::after {
-    position: absolute;
-    font-size: clamp(4rem, -0.1356rem + 6.7797vw, 8rem);
-    content: "\25B6";
-    color: var(--clr-lightest);
-    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+    &.paused::after {
+        position: absolute;
+        font-size: clamp(4rem, -0.1356rem + 6.7797vw, 8rem);
+        content: "\25B6";
+        color: var(--clr-lightest);
+        text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
 }
 
 .video {
@@ -39,18 +39,29 @@
     align-items: center;
     padding: 0 0.5rem 0 0;
     font-size: clamp(1.2rem, 1.12rem + 0.4vw, 1.6rem);
-}
 
-.video-controls .text-control {
-    margin-top: -5px;
-}
+    @media screen and (width <= 480px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+        gap: 1rem;
+    }
 
-.video-controls li:last-child {
-    margin-left: auto;
-}
+    & .text-control {
+        margin-top: -5px;
+    }
 
-.video-controls button:hover {
-    opacity: 0.9;
+    & li:last-child {
+        margin-left: auto;
+
+        @media screen and (width <= 480px) {
+            margin-left: 0;
+        }
+    }
+
+    & button:hover {
+        opacity: 0.9;
+    }
 }
 
 .progress {
@@ -59,10 +70,10 @@
 
 .volume-controls {
     display: flex;
-}
 
-.volume-controls button {
-    margin-right: clamp(0.4rem, 0.18rem + 1.1vw, 1.5rem);
+    & button {
+        margin-right: clamp(0.4rem, 0.18rem + 1.1vw, 1.5rem);
+    }
 }
 
 .btn-volume {
@@ -70,22 +81,65 @@
     height: clamp(2rem, 0.9661rem + 1.6949vw, 3rem);
     background-image: url("../img/video-vol-mute.svg");
     background-size: cover;
+
+    &.unmute {
+        background-image: url("../img/video-vol-unmute.svg");
+    }
 }
 
-.btn-volume.unmute {
-    background-image: url("../img/video-vol-unmute.svg");
+.btn-captions {
+    width: clamp(2rem, 0.9661rem + 1.6949vw, 3rem);
+    height: clamp(2rem, 0.9661rem + 1.6949vw, 3rem);
+    background-color: transparent;
+    background-image: url("../img/captions.svg");
+    background-size: cover;
+
+    border-style: solid;
+    border-width: 0 0.2rem;
+    border-color: var(--clr-darkest);
+    border-radius: 0.2rem;
+    position: relative;
+    top: -3px;
+
+    &.on {
+        background-color: var(--clr-blue);
+        border-color: var(--clr-blue);
+    }
 }
 
 .icon {
     width: clamp(2rem, 0.9661rem + 1.6949vw, 3rem);
     aspect-ratio: 1;
     fill: var(--clr-lightest);
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .icon-play-pause {
     width: clamp(3rem, 1.9661rem + 1.6949vw, 4rem);
 }
 
-.icon:hover {
-    opacity: 0.7;
+.transcript {
+    padding: 1rem;
+    font-size: clamp(1.4rem, 1.3632rem + 0.2105vw, 1.6rem);
+
+    & summary {
+        margin-bottom: 1rem;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    & ul {
+        padding-inline-start: 2.4rem;
+    }
+    & li {
+        padding-block-end: 0.5rem;
+        & span {
+            display: block;
+        }
+    }
+    & time {
+        font-family: var(--font-mono);
+    }
 }

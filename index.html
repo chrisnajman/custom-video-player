@@ -14,7 +14,7 @@
 <body>
     <a href="#main-content" class="element-invisible element-focusable skip-link">Skip to main content</a>
     <form id="theme-picker" class="theme-picker">
-        <button type="button" id="btn-theme-toggle" class="btn-theme-toggle" aria-pressed>
+        <button type="button" id="btn-theme-toggle" class="btn-theme-toggle" aria-pressed="false">
             <svg role="img" class="theme-icon" id="theme-darkmode">
                 <use href="./img/sprite.svg#moon"></use>
             </svg>
@@ -34,11 +34,12 @@
             <h1>Custom Video Player</h1>
         </header>
 
-        <main class="main">
+        <main class="main" id="main-content">
 
             <div class="player" id="videoContainer">
                 <div class="video-wrapper paused" id="video-wrapper">
-                    <video id="video" class="video" preload="metadata" onloadstart="this.volume=0.15" controls
+                    <video id="video" aria-label="Custom video" class="video" preload="metadata"
+                        onloadstart="this.volume=0.15" controls
                         poster="https://iandevlin.github.io/mdn/video-player/img/poster.jpg">
                         <source
                             src="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.mp4"
@@ -49,6 +50,9 @@
                         <source
                             src="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.ogg"
                             type="video/ogg">
+
+                        <track id="video-track" kind="captions" src="./captions/captions.en.vtt" srclang="en"
+                            label="English" />
 
                         <!-- Offer download -->
                         <a href="https://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.mp4"
@@ -66,7 +70,7 @@
                     </progress>
                     <ul class="video-controls" role="list">
                         <li>
-                            <button id="playpause" type="button">
+                            <button id="playpause" type="button" aria-label="play-pause">
                                 <span id="playpause-text" class="visually-hidden">Play</span>
                                 <svg role="img" class="icon icon-play-pause" data-play>
                                     <use href="./img/video-controls-sprite.svg#icon-play"></use>
@@ -79,17 +83,17 @@
                         <li class="text-control">
                             <span class="visually-hidden" id="video-current-time">Current time</span><span
                                 id="current-time" aria-describedby="video-current-time">00:00</span> / <span
-                                class="visually-hidden" id="video-duration">Current time</span><span id="duration"
-                                aria-describedby="video-duration" class="visually-hidden">Video duration</span>
+                                class="visually-hidden" id="video-duration">Video duration</span><span id="duration"
+                                aria-describedby="video-duration"></span>
                         </li>
                         <li class="text-control">
                             <span class="visually-hidden" id="skip-back">Go back 10 seconds</span>
-                            <button data-skip="-10" aria-describedby="skip-back">&laquo; 10s</button>
+                            <button data-skip="-10" aria-describedby="skip-back" type="button">&laquo; 10s</button>
                             <span class="visually-hidden" id="skip-forwards">Go forwards 25 seconds</span>
-                            <button data-skip="25" aria-describedby="skip-forwards">25s &raquo;</button>
+                            <button data-skip="25" aria-describedby="skip-forwards" type="button">25s &raquo;</button>
                         </li>
                         <li class="volume-controls">
-                            <button class="btn-volume" id="btn-volume" type="button">
+                            <button class="btn-volume" id="btn-volume" type="button" aria-label="Volume">
                                 <span class="visually-hidden" id="btn-volume-text">Muted</span>
                             </button>
 
@@ -99,6 +103,12 @@
                             <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05"
                                 value="0.15" id="range-volume">
                         </li>
+                        <li class="captions">
+                            <button id="captions" class="btn-captions" type="button" aria-label="Captions">
+                                <span id="captions-text" class="visually-hidden">Captions off</span>
+                            </button>
+                        </li>
+
                         <li>
                             <button id="fs" type="button">
                                 <span id="fullscreen-text" class="visually-hidden">Fullscreen</span>
@@ -112,9 +122,34 @@
                         </li>
                     </ul>
                 </div>
+                <div class="transcript-container">
+                    <details class="transcript" id="transcript">
+                        <summary aria-controls="#transcript" id="summary" aria-expanded="false">
+                            <span id="summary-status">Open</span> transcript
+                        </summary>
+                        <ul>
+                            <li>
+                                <time>00:00:00.000</time> to <time>00:00:35.000</time>
+                                <span>The soldiers battle the robots.</span>
+                            </li>
+                            <li>
+                                <time>00:00:35.000</time> to <time>00:01:09.000</time>
+                                <span>The robots battle the soldiers.</span>
+                            </li>
+                            <li>
+                                <time>00:01:09.000</time> to <time>00:01:10.000</time>
+                                <span>The soldiers defeat the robots.</span>
+                            </li>
+                        </ul>
+                    </details>
+
+
+                </div>
+
             </div>
         </main>
         <footer class="page-footer">
+
             <ul role="list">
                 <li><a href="https://github.com/chrisnajman/custom-video-player" target="_blank"
                         rel="noopener noreferrer">GitHub Repository</a></li>
