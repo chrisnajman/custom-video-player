@@ -1,8 +1,7 @@
 # Custom Video Player
 
-# Table of Contents
+This project showcases a custom-built video player created using HTML and JavaScript. It provides a more tailored user experience compared to standard video players by implementing custom controls and functionalities.
 
-- [Overview](#overview)
 - [Features](#features)
   - [1. Custom Controls](#1-custom-controls)
   - [2. Progress Bar](#2-progress-bar)
@@ -22,9 +21,7 @@
   - [Resolution](#resolution)
 - [Testing](#testing)
 
-## Overview
-
-This project showcases a custom-built video player created using HTML and JavaScript. It provides a more tailored user experience compared to standard video players by implementing custom controls and functionalities.
+---
 
 ## Features
 
@@ -89,6 +86,8 @@ This project showcases a custom-built video player created using HTML and JavaSc
 
 - [Automated accessibility analysis results](https://wave.webaim.org/report#/https://chrisnajman.github.io/custom-video-player/)
 
+---
+
 ## Bug Report: Volume Slider and Mute Button Icon Sync Issue
 
 ### Description
@@ -98,6 +97,8 @@ When the user drags the volume slider to zero while the mute button is still in 
 ### Resolution
 
 This issue is acknowledged and will be addressed in a future version of the application.
+
+---
 
 ## Testing
 
