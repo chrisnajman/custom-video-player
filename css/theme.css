@@ -19,13 +19,13 @@
     --clr-transparent: transparent;
 
     --highlight: var(--clr-light-blue);
+    --header-footer-border: var(--clr-green);
 
     /* Dark theme (default) */
     --body-bg: var(--clr-dark);
     --body-txt: var(--clr-light-green);
     --header-footer-bg: var(--clr-darkest);
     --header-footer-txt: var(--clr-light-green);
-    --header-footer-border: var(--clr-transparent);
     --theme-icon: var(--clr-lightest);
     --theme-txt: var(--clr-lightest);
 }
@@ -35,7 +35,6 @@
     --body-txt: var(--clr-darkest);
     --header-footer-bg: var(--clr-lightest);
     --header-footer-txt: var(--clr-darkest);
-    --header-footer-border: var(--clr-green);
     --theme-icon: var(--clr-orange);
     --theme-txt: var(--clr-darkest);
 }
